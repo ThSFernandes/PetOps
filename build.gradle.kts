@@ -25,18 +25,20 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
 	//Banco Oracle
 	implementation("com.oracle.database.jdbc:ojdbc11:21.9.0.0")
-
 	//Flyway
 	implementation("org.flywaydb:flyway-core:10.16.0")
 	implementation("org.flywaydb:flyway-database-oracle:10.16.0")
+	//Jpa
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	//Lombok
+	compileOnly("org.projectlombok:lombok:1.18.32")
+	annotationProcessor("org.projectlombok:lombok:1.18.32")
+	testImplementation ("org.projectlombok:lombok:1.18.32")
 }
 
 tasks.withType<Test> {

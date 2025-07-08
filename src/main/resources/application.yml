@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    group: petOps
+    name: petshop
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      maximum-pool-size: 5
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework: INFO

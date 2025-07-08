@@ -30,6 +30,9 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	//Banco Oracle
+	implementation("com.oracle.database.jdbc:ojdbc11:21.9.0.0")
 }
 
 tasks.withType<Test> {

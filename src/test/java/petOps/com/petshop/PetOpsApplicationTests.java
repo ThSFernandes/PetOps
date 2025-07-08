@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class PetOpsApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 

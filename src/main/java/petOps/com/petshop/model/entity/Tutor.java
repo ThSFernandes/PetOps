@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -37,7 +38,7 @@ public class Tutor {
     @Column(name = "DATA_NASCIMENTO", nullable = false)
     private LocalDate data_nascimento;
 
-//    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-//    private Set<Endereco> enderecos;
+    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private Set<Endereco> enderecos;
 
 }

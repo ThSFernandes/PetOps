@@ -3,11 +3,11 @@ package petOps.com.petshop;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class PetOpsApplicationTests {
 
 //	@Test
-	void contextLoads() {
-	}
-
+//	void contextLoads() {
+//	}
+//comentado no momento, pois não possui BD
 }

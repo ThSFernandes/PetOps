@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.enums.PortePet;
+import petOps.com.petshop.model.enums.SexoPet;
 
 import java.time.LocalDate;
 

@@ -33,6 +33,10 @@ dependencies {
 
 	//Banco Oracle
 	implementation("com.oracle.database.jdbc:ojdbc11:21.9.0.0")
+
+	//Flyway
+	implementation("org.flywaydb:flyway-core:10.16.0")
+	implementation("org.flywaydb:flyway-database-oracle:10.16.0")
 }
 
 tasks.withType<Test> {

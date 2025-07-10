@@ -34,6 +34,19 @@ public class FuncionarioService {
         return funcionarioMapper.toDto(funcionario);
     }
 
+    public FuncionarioDTO buscarFuncionarioPorNome(String nomeFuncionario) {
+        log.info("Iniciando busca do funcionário por nome: {}", nomeFuncionario);
+        Funcionario funcionario = funcionarioRepository
+                .findByNomeFuncionario(nomeFuncionario)
+                .orElseThrow(() -> {
+                    log.warn("Funcionário não encontrado: {}", nomeFuncionario);
+                    return new EntityNotFoundException("Funcionário com nome = " + nomeFuncionario + " não encontrado");
+                });
+
+        return funcionarioMapper.toDto(funcionario);
+    }
+
+
     public FuncionarioDTO buscarFuncionario(Long id_funcionario) {
         return funcionarioRepository.findById(id_funcionario)
                 .map(funcionario -> {

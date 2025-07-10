@@ -1,0 +1,36 @@
+package petOps.com.petshop.model.dtos;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import petOps.com.petshop.model.entity.Especie;
+import petOps.com.petshop.model.entity.Raca;
+import petOps.com.petshop.model.entity.Tutor;
+import petOps.com.petshop.model.enums.PortePet;
+import petOps.com.petshop.model.enums.SexoPet;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class PetDTO {
+
+    private String nome_pet;
+
+    private PortePet porte;
+
+    private SexoPet sexo_pet;
+
+    private LocalDate dataNascimento;
+
+    private Set<Tutor> tutores;
+
+    private Especie idEspecie;
+
+    private Raca idRaca;
+}

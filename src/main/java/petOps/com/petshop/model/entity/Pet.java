@@ -9,6 +9,7 @@ import petOps.com.petshop.model.enums.PortePet;
 import petOps.com.petshop.model.enums.SexoPet;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "PET")
@@ -22,21 +23,27 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pet")
     @SequenceGenerator(name = "seq_pet", sequenceName = "seq_pet", allocationSize = 1)
-    private Long id;
+    private Long id_pet;
 
     @Column(name = "NOME_PET")
-    private String nomePet;
+    private String nome_pet;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "PORTE")
-    private PortePet tamanhoPet;
+    private PortePet porte;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "SEXO")
-    private SexoPet sexoPet;
+    private SexoPet sexo_pet;
 
     @Column(name = "DATA_NASCIMENTO")
     private LocalDate dataNascimento;
+
+    @ManyToMany
+    @JoinTable(name = "PET_TUTOR",
+            joinColumns        = @JoinColumn(name = "ID_PET"),
+            inverseJoinColumns = @JoinColumn(name = "ID_TUTOR"))
+    private Set<Tutor> tutores;
 
     @ManyToOne
     @JoinColumn(name = "ID_ESPECIE", referencedColumnName = "ID_ESPECIE")

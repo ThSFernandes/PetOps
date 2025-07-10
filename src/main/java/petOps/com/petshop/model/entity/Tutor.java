@@ -41,4 +41,5 @@ public class Tutor {
     @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Endereco> enderecos;
 
+
 }

@@ -13,7 +13,7 @@ public class ServicoCreateDTO{
 
     private Long idServico;
 
-    private String nome_servico;
+    private String nomeServico;
 
     private Double valor;
 }

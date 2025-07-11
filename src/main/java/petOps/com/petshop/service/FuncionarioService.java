@@ -25,7 +25,7 @@ public class FuncionarioService {
         Funcionario funcionario = funcionarioMapper.toEntity(funcionarioCreateDTO);
         funcionario = funcionarioRepository.save(funcionario);
 
-        log.info("Funcionário criado com sucesso. ID={}", funcionario.getId_funcionario());
+        log.info("Funcionário criado com sucesso. ID={}", funcionario.getIdFuncionario());
 
         return funcionarioMapper.toDto(funcionario);
     }
@@ -69,7 +69,7 @@ public class FuncionarioService {
     public FuncionarioDTO atualizarFuncionario(Long idFuncionario, FuncionarioCreateDTO funcionarioCreateDTO ){
         Funcionario funcionarioAtualizar = buscarFuncionarioById(idFuncionario);
 
-        funcionarioAtualizar.setNome_funcionario(funcionarioCreateDTO.getNome_funcionario());
+        funcionarioAtualizar.setNomeFuncionario(funcionarioCreateDTO.getNomeFuncionario());
         funcionarioAtualizar.setTelefone(funcionarioCreateDTO.getTelefone());
         funcionarioAtualizar.setFuncao(funcionarioCreateDTO.getFuncao());
         funcionarioAtualizar.setCrmv(funcionarioCreateDTO.getCrmv());

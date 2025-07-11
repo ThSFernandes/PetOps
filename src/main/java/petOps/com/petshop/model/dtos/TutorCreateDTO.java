@@ -16,7 +16,7 @@ public class TutorCreateDTO {
 
     private Long idTutor;
 
-    private String nome_tutor;
+    private String nomeTutor;
 
     private String cpf;
 
@@ -24,7 +24,7 @@ public class TutorCreateDTO {
 
     private String email;
 
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
     private Set<EnderecoDTO> enderecos;
 }

@@ -17,7 +17,7 @@ public class EnderecoCreateDTO {
 
     private String bairro;
 
-    private String numero_casa;
+    private String numeroCasa;
 
     private String complemento;
 

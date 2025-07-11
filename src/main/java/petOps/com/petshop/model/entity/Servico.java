@@ -20,7 +20,7 @@ public class Servico {
     private Long idServico;
 
     @Column(name = "NOME_SERVICO", nullable = false)
-    private String nome_servico;
+    private String nomeServico;
 
     @Column(name = "VALOR", nullable = false)
     private Double valor;

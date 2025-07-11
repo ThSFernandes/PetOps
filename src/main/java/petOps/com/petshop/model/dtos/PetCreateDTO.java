@@ -21,11 +21,11 @@ public class PetCreateDTO{
 
     private Long idPet;
 
-    private String nome_pet;
+    private String nomePet;
 
     private PortePet porte;
 
-    private SexoPet sexo_pet;
+    private SexoPet sexoPet;
 
     private LocalDate dataNascimento;
 

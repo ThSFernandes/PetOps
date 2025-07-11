@@ -24,7 +24,7 @@ public class Tutor {
     private Long idTutor;
 
     @Column(name = "NOME_TUTOR", nullable = false)
-    private String nome_tutor;
+    private String nomeTutor;
 
     @Column(name = "CPF", nullable = false)
     private String cpf;
@@ -36,7 +36,7 @@ public class Tutor {
     private String email;
 
     @Column(name = "DATA_NASCIMENTO", nullable = false)
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
     @OneToMany(mappedBy = "tutores", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Endereco> enderecos;

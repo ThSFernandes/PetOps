@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class FuncionarioDTO {
 
-    private String nome_funcionario;
+    private String nomeFuncionario;
 
     private String telefone;
 

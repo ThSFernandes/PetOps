@@ -11,6 +11,6 @@ public interface ServicoMapper {
 
     ServicoDTO toDto(Servico servico);
 
-    @Mapping(target = "id_servico", ignore = true)
+    @Mapping(target = "idServico", ignore = true)
     Servico toEntity(ServicoCreateDTO servicoCreateDTO);
 }

@@ -17,7 +17,7 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_endereco")
     @SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco", allocationSize = 1)
-    private Long id_endereco;
+    private Long idEndereco;
 
     @Column(name = "LOGRADOURO", nullable = false)
     private String logradouro;
@@ -39,5 +39,5 @@ public class Endereco {
 
     @ManyToOne
     @JoinColumn(name = "ID_TUTOR", referencedColumnName = "ID_TUTOR")
-    private Tutor tutor;
+    private Tutor tutores;
 }

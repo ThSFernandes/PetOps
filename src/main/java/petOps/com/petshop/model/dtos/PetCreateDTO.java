@@ -19,7 +19,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class PetCreateDTO{
 
-    private Long id_pet;
+    private Long idPet;
 
     private String nome_pet;
 

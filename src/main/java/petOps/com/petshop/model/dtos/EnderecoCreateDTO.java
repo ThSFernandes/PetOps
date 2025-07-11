@@ -11,7 +11,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EnderecoCreateDTO {
 
-    private Long id_endereco;
+    private Long idEndereco;
 
     private String logradouro;
 

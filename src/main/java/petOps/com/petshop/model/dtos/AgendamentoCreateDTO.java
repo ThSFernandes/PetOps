@@ -31,5 +31,5 @@ public class AgendamentoCreateDTO {
 
     private Funcionario funcionario_groomer;
 
-    private Set<Servico> servicos_adicionais;
+    private Set<ServicoDTO> servicos_adicionais;
 }

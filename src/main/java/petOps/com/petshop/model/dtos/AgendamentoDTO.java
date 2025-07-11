@@ -1,13 +1,20 @@
 package petOps.com.petshop.model.dtos;
 
-import jakarta.persistence.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.entity.Pet;
-import petOps.com.petshop.model.entity.Servico;
 
 import java.time.LocalDate;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class AgendamentoDTO {
 
     private LocalDate data_marcada;
@@ -22,6 +29,6 @@ public class AgendamentoDTO {
 
     private Funcionario funcionario_groomer;
 
-    private Set<Servico> servicos_adicionais;
+    private Set<ServicoDTO> servicos_adicionais;
 
 }

@@ -28,7 +28,7 @@ public class PetDTO {
 
     private LocalDate dataNascimento;
 
-    private Set<Tutor> tutores;
+    private Set<TutorDTO> tutores;
 
     private Especie idEspecie;
 

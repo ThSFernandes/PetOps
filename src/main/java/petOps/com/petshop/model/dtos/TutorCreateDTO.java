@@ -12,8 +12,9 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class TutorCreateDTO {
+
+    private Long id_tutor;
 
     private String nome_tutor;
 

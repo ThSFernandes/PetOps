@@ -16,8 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class TutorDTO {
 
-    private Long id_tutor;
-
     private String nome_tutor;
 
     private String cpf;

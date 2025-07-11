@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.enums.FuncaoFuncionario;
+import petOps.com.petshop.model.enums.PortePet;
 
 import java.time.LocalDate;
 @Entity
@@ -25,10 +27,11 @@ public class Funcionario {
     @Column(name = "TELEFONE", nullable = false)
     private String telefone;
 
-    @Column(name = "FUNCAO", nullable = false)
-    private String funcao;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "FUNCAO")
+    private FuncaoFuncionario funcao;
 
-    @Column(name = "CRMV", nullable = true)
+    @Column(name = "CRMV", nullable = true, unique = true)
     private String crmv;
 
 }

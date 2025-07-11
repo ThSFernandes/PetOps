@@ -1,17 +1,26 @@
 package petOps.com.petshop.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.time.LocalDate;
 
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "ENDERECO")
 public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_endereco")
     @SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco", allocationSize = 1)
     private Long id_endereco;
 
-    @Column(name = "LONGRADOURO", nullable = false)
-    private String longradouro;
+    @Column(name = "LOGRADOURO", nullable = false)
+    private String logradouro;
 
     @Column(name = "BAIRRO", nullable = false)
     private String bairro;
@@ -19,7 +28,7 @@ public class Endereco {
     @Column(name = "NUMERO_CASA", nullable = false)
     private String numero_casa;
 
-    @Column(name = "COMPLEMENTO", nullable = false)
+    @Column(name = "COMPLEMENTO", nullable = true)
     private String complemento;
 
     @Column(name = "CIDADE", nullable = false)

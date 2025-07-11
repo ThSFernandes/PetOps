@@ -19,7 +19,7 @@ public class Especie {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_especie")
     @SequenceGenerator(name = "seq_especie", sequenceName = "seq_especie", allocationSize = 1)
-    private Long id_especie;
+    private Long idEspecie;
 
     @Column(name = "NOME_ESPECIE")
     private String nomeEspecie;

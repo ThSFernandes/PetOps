@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class TutorDTO {
 
-    private String nome_tutor;
+    private String nomeTutor;
 
     private String cpf;
 
@@ -24,7 +24,7 @@ public class TutorDTO {
 
     private String email;
 
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
     private Set<EnderecoDTO> enderecos;
 

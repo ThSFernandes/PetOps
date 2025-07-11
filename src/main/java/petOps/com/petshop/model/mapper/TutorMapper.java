@@ -11,7 +11,7 @@ public interface TutorMapper {
 
     TutorDTO toDto(Tutor tutor);
 
-    @Mapping(target = "id_tutor", ignore = true)
+    @Mapping(target = "idTutor", ignore = true)
     Tutor toEntity(TutorCreateDTO TutorCreateDTO);
 
 }

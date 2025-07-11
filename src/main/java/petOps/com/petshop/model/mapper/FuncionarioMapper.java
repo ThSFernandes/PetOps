@@ -11,7 +11,7 @@ public interface FuncionarioMapper {
 
     FuncionarioDTO toDto(Funcionario funcionario);
 
-    @Mapping(target = "id_funcionario", ignore = true)
+    @Mapping(target = "idFuncionario", ignore = true)
     Funcionario toEntity(FuncionarioCreateDTO funcionarioCreateDTO);
 
 }

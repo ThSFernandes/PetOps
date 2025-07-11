@@ -11,13 +11,13 @@ import lombok.Setter;
 @AllArgsConstructor
 public class EnderecoCreateDTO {
 
-    private Long id_endereco;
+    private Long idEndereco;
 
     private String logradouro;
 
     private String bairro;
 
-    private String numero_casa;
+    private String numeroCasa;
 
     private String complemento;
 

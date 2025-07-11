@@ -23,10 +23,10 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pet")
     @SequenceGenerator(name = "seq_pet", sequenceName = "seq_pet", allocationSize = 1)
-    private Long id_pet;
+    private Long idPet;
 
     @Column(name = "NOME_PET")
-    private String nome_pet;
+    private String nomePet;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "PORTE")
@@ -34,7 +34,7 @@ public class Pet {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "SEXO")
-    private SexoPet sexo_pet;
+    private SexoPet sexoPet;
 
     @Column(name = "DATA_NASCIMENTO")
     private LocalDate dataNascimento;

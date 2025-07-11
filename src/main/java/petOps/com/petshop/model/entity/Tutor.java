@@ -21,10 +21,10 @@ public class Tutor {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_tutor")
     @SequenceGenerator(name = "seq_tutor", sequenceName = "seq_tutor", allocationSize = 1)
-    private Long id_tutor;
+    private Long idTutor;
 
     @Column(name = "NOME_TUTOR", nullable = false)
-    private String nome_tutor;
+    private String nomeTutor;
 
     @Column(name = "CPF", nullable = false)
     private String cpf;
@@ -36,9 +36,9 @@ public class Tutor {
     private String email;
 
     @Column(name = "DATA_NASCIMENTO", nullable = false)
-    private LocalDate data_nascimento;
+    private LocalDate dataNascimento;
 
-    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "tutores", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private Set<Endereco> enderecos;
 
 

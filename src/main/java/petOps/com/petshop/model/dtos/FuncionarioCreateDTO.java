@@ -12,9 +12,9 @@ import petOps.com.petshop.model.enums.FuncaoFuncionario;
 @AllArgsConstructor
 public class FuncionarioCreateDTO {
 
-    private Long id_funcionario;
+    private Long idFuncionario;
 
-    private String nome_funcionario;
+    private String nomeFuncionario;
 
     private String telefone;
 

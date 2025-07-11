@@ -11,6 +11,6 @@ public interface PetMapper {
 
     PetDTO toDto(Pet pet);
 
-    @Mapping(target = "id_pet", ignore = true)
+    @Mapping(target = "idPet", ignore = true)
     Pet toEntity(PetCreateDTO petCreateDTO);
 }

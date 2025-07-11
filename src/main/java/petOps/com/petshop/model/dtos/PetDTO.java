@@ -20,11 +20,11 @@ import java.util.Set;
 @NoArgsConstructor
 public class PetDTO {
 
-    private String nome_pet;
+    private String nomePet;
 
     private PortePet porte;
 
-    private SexoPet sexo_pet;
+    private SexoPet sexoPet;
 
     private LocalDate dataNascimento;
 

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.enums.FuncaoFuncionario;
 
 @Getter
 @Setter
@@ -17,7 +18,7 @@ public class FuncionarioCreateDTO {
 
     private String telefone;
 
-    private String funcao;
+    private FuncaoFuncionario funcao;
 
     private String crmv;
 }

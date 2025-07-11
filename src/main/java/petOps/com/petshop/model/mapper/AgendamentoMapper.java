@@ -11,5 +11,5 @@ public interface AgendamentoMapper {
     AgendamentoDTO toDto(Agendamento agendamento);
 
     @Mapping(target = "id_agendamento", ignore = true)
-    Agendamento toEnity(AgendamentoCreateDTO agendamentoCreateDTO);
+    Agendamento toEntity(AgendamentoCreateDTO agendamentoCreateDTO);
 }

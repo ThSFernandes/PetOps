@@ -19,10 +19,10 @@ public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_funcionario")
     @SequenceGenerator(name = "seq_funcionario", sequenceName = "seq_funcionario", allocationSize = 1)
-    private Long id_funcionario;
+    private Long idFuncionario;
 
     @Column(name = "NOME_FUNCIONARIO", nullable = false)
-    private String nome_funcionario;
+    private String nomeFuncionario;
 
     @Column(name = "TELEFONE", nullable = false)
     private String telefone;

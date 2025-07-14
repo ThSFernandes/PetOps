@@ -7,6 +7,7 @@ import lombok.Setter;
 import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.entity.Pet;
 import petOps.com.petshop.model.entity.Servico;
+import petOps.com.petshop.model.enums.StatusAgendamento;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -17,19 +18,19 @@ import java.util.Set;
 @AllArgsConstructor
 public class AgendamentoCreateDTO {
 
-    private Long id_agendamento;
+    private Long idAgendamento;
 
-    private LocalDate data_marcada;
+    private LocalDate dataMarcada;
 
-    private String status;
+    private StatusAgendamento status;
 
     private String observacoes;
 
     private Pet pet;
 
-    private Funcionario funcionario_veterinario;
+    private Funcionario funcionarioVeterinario;
 
-    private Funcionario funcionario_groomer;
+    private Funcionario funcionarioGroomer;
 
-    private Set<ServicoDTO> servicos_adicionais;
+    private Set<ServicoDTO> servicosAdicionais;
 }

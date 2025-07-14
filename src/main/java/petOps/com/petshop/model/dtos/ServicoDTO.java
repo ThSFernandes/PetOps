@@ -11,7 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ServicoDTO {
 
-    private String nome_servico;
+    private String nomeServico;
 
     private Double valor;
 

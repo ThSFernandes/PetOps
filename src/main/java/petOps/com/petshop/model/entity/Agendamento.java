@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.enums.StatusAgendamento;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -20,13 +21,13 @@ public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_agendamento")
     @SequenceGenerator(name = "seq_agendamento", sequenceName = "seq_agendamento", allocationSize = 1)
-    private Long id_agendamento;
+    private Long idAgendamento;
 
     @Column(name = "DATA_MARCADA", nullable = false)
-    private LocalDate data_marcada;
+    private LocalDate dataMarcada;
 
     @Column(name = "STATUS", nullable = false)
-    private String status;
+    private StatusAgendamento status;
 
     @Column(name = "OBSERVACOES", nullable = true)
     private String observacoes;
@@ -37,11 +38,11 @@ public class Agendamento {
 
     @ManyToOne
     @JoinColumn(name = "ID_FUNCIONARIO_VETERINARIO", referencedColumnName = "ID_FUNCIONARIO")
-    private Funcionario funcionario_veterinario;
+    private Funcionario funcionarioVeterinario;
 
     @ManyToOne
     @JoinColumn(name = "ID_FUNCIONARIO_GROOMER", referencedColumnName = "ID_FUNCIONARIO")
-    private Funcionario funcionario_groomer;
+    private Funcionario funcionarioGroomer;
 
     @ManyToMany
     @JoinTable(
@@ -49,6 +50,6 @@ public class Agendamento {
             joinColumns = @JoinColumn(name = "ID_AGENDAMENTO"),
             inverseJoinColumns = @JoinColumn(name = "ID_SERVICO")
     )
-    private Set<Servico> servicos_adicionais;
+    private Set<Servico> servicosAdicionais;
 
 }

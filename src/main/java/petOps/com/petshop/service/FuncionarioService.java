@@ -10,10 +10,6 @@ import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.mapper.FuncionarioMapper;
 import petOps.com.petshop.repository.FuncionarioRepository;
 
-import javax.management.InstanceNotFoundException;
-import javax.swing.text.html.parser.Entity;
-import java.util.Optional;
-
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +25,7 @@ public class FuncionarioService {
         Funcionario funcionario = funcionarioMapper.toEntity(funcionarioCreateDTO);
         funcionario = funcionarioRepository.save(funcionario);
 
-        log.info("Funcionário criado com sucesso. ID={}", funcionario.getId_funcionario());
+        log.info("Funcionário criado com sucesso. ID={}", funcionario.getIdFuncionario());
 
         return funcionarioMapper.toDto(funcionario);
     }
@@ -47,33 +43,33 @@ public class FuncionarioService {
     }
 
 
-    public FuncionarioDTO buscarFuncionario(Long id_funcionario) {
-        return funcionarioRepository.findById(id_funcionario)
+    public FuncionarioDTO buscarFuncionario(Long idFuncionario) {
+        return funcionarioRepository.findById(idFuncionario)
                 .map(funcionario -> {
-                    log.info("Funcionário encontrado. ID = {}", id_funcionario);
+                    log.info("Funcionário encontrado. ID = {}", idFuncionario);
                     return funcionarioMapper.toDto(funcionario);
 
                 }).orElseThrow(() -> {
-                    log.warn("Funcionário não encontrado. ID = {}", id_funcionario);
-                    return new EntityNotFoundException("Funcionário com id = " + id_funcionario + " não encontrado");
+                    log.warn("Funcionário não encontrado. ID = {}", idFuncionario);
+                    return new EntityNotFoundException("Funcionário com id = " + idFuncionario + " não encontrado");
                 });
     }
 
-    public void deletarFuncionario(Long id_funcionario){
+    public void deletarFuncionario(Long idFuncionario){
 
-        if(!funcionarioRepository.existsById(id_funcionario)){
-            log.warn("Funcionário com ID = {}, não encontrado", id_funcionario);
-            throw new EntityNotFoundException("Funcionário com id = " + id_funcionario + " não encontrado");
+        if(!funcionarioRepository.existsById(idFuncionario)){
+            log.warn("Funcionário com ID = {}, não encontrado", idFuncionario);
+            throw new EntityNotFoundException("Funcionário com id = " + idFuncionario + " não encontrado");
         }
 
-        funcionarioRepository.deleteById(id_funcionario);
-        log.info("Funcionário deletado com sucesso. ID = {}", id_funcionario);
+        funcionarioRepository.deleteById(idFuncionario);
+        log.info("Funcionário deletado com sucesso. ID = {}", idFuncionario);
     }
 
-    public FuncionarioDTO atualizarFuncionario(Long id_funcionario,FuncionarioCreateDTO funcionarioCreateDTO ){
-        Funcionario funcionarioAtualizar = getFuncionarioById(id_funcionario);
+    public FuncionarioDTO atualizarFuncionario(Long idFuncionario, FuncionarioCreateDTO funcionarioCreateDTO ){
+        Funcionario funcionarioAtualizar = buscarFuncionarioById(idFuncionario);
 
-        funcionarioAtualizar.setNome_funcionario(funcionarioCreateDTO.getNome_funcionario());
+        funcionarioAtualizar.setNomeFuncionario(funcionarioCreateDTO.getNomeFuncionario());
         funcionarioAtualizar.setTelefone(funcionarioCreateDTO.getTelefone());
         funcionarioAtualizar.setFuncao(funcionarioCreateDTO.getFuncao());
         funcionarioAtualizar.setCrmv(funcionarioCreateDTO.getCrmv());
@@ -83,9 +79,9 @@ public class FuncionarioService {
         return funcionarioMapper.toDto(funcionarioAtualizar);
     }
 
-    public Funcionario getFuncionarioById(Long id_funcionario){
-        return funcionarioRepository.findById(id_funcionario).orElseThrow(
-                () -> new EntityNotFoundException("Funcionário com id = " + id_funcionario + " não encontrado")
+    public Funcionario buscarFuncionarioById(Long idFuncionario){
+        return funcionarioRepository.findById(idFuncionario).orElseThrow(
+                () -> new EntityNotFoundException("Funcionário com id = " + idFuncionario + " não encontrado")
         );
     }
 

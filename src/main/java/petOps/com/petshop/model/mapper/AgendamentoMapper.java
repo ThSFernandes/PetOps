@@ -10,6 +10,6 @@ import petOps.com.petshop.model.entity.Agendamento;
 public interface AgendamentoMapper {
     AgendamentoDTO toDto(Agendamento agendamento);
 
-    @Mapping(target = "id_agendamento", ignore = true)
+    @Mapping(target = "idAgendamento", ignore = true)
     Agendamento toEntity(AgendamentoCreateDTO agendamentoCreateDTO);
 }

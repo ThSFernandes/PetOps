@@ -11,9 +11,9 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ServicoCreateDTO{
 
-    private Long id_servico;
+    private Long idServico;
 
-    private String nome_servico;
+    private String nomeServico;
 
     private Double valor;
 }

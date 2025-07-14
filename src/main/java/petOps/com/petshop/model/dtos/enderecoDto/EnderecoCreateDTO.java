@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.entity.Tutor;
 
 @Getter
 @Setter
@@ -24,4 +25,6 @@ public class EnderecoCreateDTO {
     private String cidade;
 
     private String estado;
+
+    private Tutor tutores;
 }

@@ -1,4 +1,4 @@
-package petOps.com.petshop.model.dtos;
+package petOps.com.petshop.model.dtos.enderecoDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

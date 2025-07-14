@@ -1,12 +1,13 @@
-package petOps.com.petshop.model.dtos;
+package petOps.com.petshop.model.dtos.agendamentoDto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.servicoDto.ServicoDTO;
 import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.entity.Pet;
-import petOps.com.petshop.model.entity.Servico;
 import petOps.com.petshop.model.enums.StatusAgendamento;
 
 import java.time.LocalDate;
@@ -16,9 +17,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class AgendamentoCreateDTO {
-
-    private Long idAgendamento;
+public class AgendamentoDTO {
 
     private LocalDate dataMarcada;
 
@@ -33,4 +32,5 @@ public class AgendamentoCreateDTO {
     private Funcionario funcionarioGroomer;
 
     private Set<ServicoDTO> servicosAdicionais;
+
 }

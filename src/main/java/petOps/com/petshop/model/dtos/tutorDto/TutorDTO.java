@@ -1,9 +1,12 @@
-package petOps.com.petshop.model.dtos;
+package petOps.com.petshop.model.dtos.tutorDto;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.enderecoDto.EnderecoDTO;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -12,9 +15,7 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class TutorCreateDTO {
-
-    private Long idTutor;
+public class TutorDTO {
 
     private String nomeTutor;
 
@@ -27,4 +28,5 @@ public class TutorCreateDTO {
     private LocalDate dataNascimento;
 
     private Set<EnderecoDTO> enderecos;
+
 }

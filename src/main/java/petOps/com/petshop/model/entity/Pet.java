@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.tutorDto.TutorDTO;
 import petOps.com.petshop.model.enums.PortePet;
 import petOps.com.petshop.model.enums.SexoPet;
 
@@ -43,7 +44,7 @@ public class Pet {
     @JoinTable(name = "PET_TUTOR",
             joinColumns        = @JoinColumn(name = "ID_PET"),
             inverseJoinColumns = @JoinColumn(name = "ID_TUTOR"))
-    private Set<Tutor> tutores;
+    private Set<TutorDTO> tutores;
 
     @ManyToOne
     @JoinColumn(name = "ID_ESPECIE", referencedColumnName = "ID_ESPECIE")

@@ -10,6 +10,8 @@ import petOps.com.petshop.model.entity.Pet;
 import petOps.com.petshop.model.mapper.PetMapper;
 import petOps.com.petshop.repository.PetRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -49,6 +51,13 @@ public class PetService {
                     return new EntityNotFoundException("Pet com nome = " + nomePet + " , não encontrado");
                 });
         return petMapper.toDto(pet);
+    }
+
+    public List<PetDTO> buscarTodosPets(){
+        return petRepository.findAll()
+                .stream()
+                .map(petMapper::toDto)
+                .toList();
     }
 
     public PetDTO atualizarPet(Long idPet, PetCreateDTO petCreateDTO){

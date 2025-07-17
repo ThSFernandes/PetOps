@@ -10,6 +10,8 @@ import petOps.com.petshop.model.entity.Servico;
 import petOps.com.petshop.model.mapper.ServicoMapper;
 import petOps.com.petshop.repository.ServicoRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -38,6 +40,13 @@ public class ServicoService {
                     log.warn("Serviço não encontrado. ID={}", idServico);
                     return new EntityNotFoundException("Serviço com id = " + idServico + " não encontrado");
                 });
+    }
+
+    public List<ServicoDTO> buscarTodosServicos(){
+        return servicoRepository.findAll()
+                .stream()
+                .map(servicoMapper::toDto)
+                .toList();
     }
 
     public ServicoDTO atualizarServico(Long idServico, ServicoCreateDTO servicoCreateDTO){

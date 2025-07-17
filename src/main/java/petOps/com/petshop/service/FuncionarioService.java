@@ -10,6 +10,8 @@ import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.mapper.FuncionarioMapper;
 import petOps.com.petshop.repository.FuncionarioRepository;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -53,6 +55,13 @@ public class FuncionarioService {
                     log.warn("Funcionário não encontrado. ID = {}", idFuncionario);
                     return new EntityNotFoundException("Funcionário com id = " + idFuncionario + " não encontrado");
                 });
+    }
+
+    public List<FuncionarioDTO> buscarTodosFuncionarios(){
+        return funcionarioRepository.findAll()
+                .stream()
+                .map(funcionarioMapper::toDto)
+                .toList();
     }
 
     public void deletarFuncionario(Long idFuncionario){

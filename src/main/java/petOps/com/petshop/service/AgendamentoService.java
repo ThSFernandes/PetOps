@@ -11,6 +11,8 @@ import petOps.com.petshop.model.entity.Agendamento;
 import petOps.com.petshop.model.mapper.AgendamentoMapper;
 import petOps.com.petshop.repository.AgendamentoRepository;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -39,6 +41,13 @@ public class AgendamentoService {
                     log.warn("Agendamento não encontrado. ID = {}", idAgendamento);
                     return new EntityNotFoundException("Agendamento com id = " + idAgendamento + " não encontrado");
                 });
+    }
+
+    public List<AgendamentoDTO> buscarTodosAgendamentos(){
+        return agendamentoRepository.findAll()
+                .stream()
+                .map(agendamentoMapper::toDto)
+                .toList();
     }
 
     public AgendamentoDTO buscarAgendamentoPorNomePet(String nomePet){

@@ -37,9 +37,9 @@ public class FuncionarioController {
     }
 
     @PostMapping
-    public ResponseEntity<FuncionarioDTO> criarFuncionario(@RequestBody FuncionarioCreateDTO funcionarioDTO){
-        FuncionarioDTO funcionario = funcionarioService.criarFuncionario(funcionarioDTO);
-        return new ResponseEntity<>(funcionario, HttpStatus.OK);
+    public ResponseEntity<FuncionarioDTO> criarFuncionario(@RequestBody FuncionarioCreateDTO funcionarioCreateDTO){
+        FuncionarioDTO funcionarioDTO = funcionarioService.criarFuncionario(funcionarioCreateDTO);
+        return new ResponseEntity<>(funcionarioDTO, HttpStatus.OK);
     }
 
     @PutMapping("/id/{id}")

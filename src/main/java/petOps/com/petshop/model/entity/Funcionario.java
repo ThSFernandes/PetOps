@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import petOps.com.petshop.model.enums.FuncaoFuncionario;
-import petOps.com.petshop.model.enums.PortePet;
 
-import java.time.LocalDate;
+
+
 @Entity
 @Getter
 @Setter
@@ -19,6 +19,7 @@ public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_funcionario")
     @SequenceGenerator(name = "seq_funcionario", sequenceName = "seq_funcionario", allocationSize = 1)
+    @Column(name = "ID_FUNCIONARIO")
     private Long idFuncionario;
 
     @Column(name = "NOME_FUNCIONARIO", nullable = false)

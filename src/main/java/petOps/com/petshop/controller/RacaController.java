@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import petOps.com.petshop.model.dtos.raca.RacaCreateDTO;
-import petOps.com.petshop.model.dtos.raca.RacaDTO;
+import petOps.com.petshop.model.dtos.racaDto.RacaCreateDTO;
+import petOps.com.petshop.model.dtos.racaDto.RacaDTO;
 import petOps.com.petshop.service.RacaService;
 
 import java.util.List;

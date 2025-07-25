@@ -24,6 +24,7 @@ public class Pet {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pet")
     @SequenceGenerator(name = "seq_pet", sequenceName = "seq_pet", allocationSize = 1)
+    @Column(name = "ID_PET")
     private Long idPet;
 
     @Column(name = "NOME_PET")
@@ -44,7 +45,7 @@ public class Pet {
     @JoinTable(name = "PET_TUTOR",
             joinColumns        = @JoinColumn(name = "ID_PET"),
             inverseJoinColumns = @JoinColumn(name = "ID_TUTOR"))
-    private Set<TutorDTO> tutores;
+    private Set<Tutor> tutores;
 
     @ManyToOne
     @JoinColumn(name = "ID_ESPECIE", referencedColumnName = "ID_ESPECIE")

@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.servicoDto.ServicoCreateDTO;
 import petOps.com.petshop.model.dtos.servicoDto.ServicoDTO;
 import petOps.com.petshop.model.entity.Funcionario;
 import petOps.com.petshop.model.entity.Pet;
@@ -32,5 +33,5 @@ public class AgendamentoCreateDTO {
 
     private Funcionario funcionarioGroomer;
 
-    private Set<ServicoDTO> servicosAdicionais;
+    private Set<ServicoCreateDTO> servicosAdicionais;
 }

@@ -1,4 +1,4 @@
-package petOps.com.petshop.model.dtos.raca;
+package petOps.com.petshop.model.dtos.racaDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

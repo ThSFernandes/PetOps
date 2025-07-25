@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.servicoDto.ServicoCreateDTO;
 import petOps.com.petshop.model.enums.StatusAgendamento;
 
 import java.time.LocalDate;
@@ -21,6 +22,7 @@ public class Agendamento {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_agendamento")
     @SequenceGenerator(name = "seq_agendamento", sequenceName = "seq_agendamento", allocationSize = 1)
+    @Column(name = "ID_AGENDAMENTO")
     private Long idAgendamento;
 
     @Column(name = "DATA_MARCADA", nullable = false)

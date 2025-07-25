@@ -17,6 +17,7 @@ public class Endereco {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_endereco")
     @SequenceGenerator(name = "seq_endereco", sequenceName = "seq_endereco", allocationSize = 1)
+    @Column(name = "ID_ENDERECO")
     private Long idEndereco;
 
     @Column(name = "LOGRADOURO", nullable = false)

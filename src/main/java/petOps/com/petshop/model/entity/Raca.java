@@ -17,6 +17,7 @@ public class Raca {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_raca")
     @SequenceGenerator(name = "seq_raca", sequenceName = "seq_raca", allocationSize = 1)
+    @Column(name = "ID_RACA")
     private Long idRaca;
 
     @Column(name = "NOME_RACA")

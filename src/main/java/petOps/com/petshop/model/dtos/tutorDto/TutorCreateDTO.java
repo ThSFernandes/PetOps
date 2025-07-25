@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.enderecoDto.EnderecoCreateDTO;
 import petOps.com.petshop.model.dtos.enderecoDto.EnderecoDTO;
 
 import java.time.LocalDate;
@@ -27,5 +28,5 @@ public class TutorCreateDTO {
 
     private LocalDate dataNascimento;
 
-    private Set<EnderecoDTO> enderecos;
+    private Set<EnderecoCreateDTO> enderecos;
 }

@@ -1,5 +1,4 @@
-package petOps.com.petshop.model.dtos.especie;
-
+package petOps.com.petshop.model.dtos.especieDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +9,6 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EspecieCreateDTO {
-    private Long idEspecie;
-
+public class EspecieDTO {
     private String nomeEspecie;
 }

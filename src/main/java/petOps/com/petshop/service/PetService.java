@@ -7,10 +7,14 @@ import org.springframework.stereotype.Service;
 import petOps.com.petshop.model.dtos.petDto.PetCreateDTO;
 import petOps.com.petshop.model.dtos.petDto.PetDTO;
 import petOps.com.petshop.model.entity.Pet;
+import petOps.com.petshop.model.entity.Tutor;
 import petOps.com.petshop.model.mapper.PetMapper;
 import petOps.com.petshop.repository.PetRepository;
+import petOps.com.petshop.repository.TutorRepository;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,7 +22,8 @@ import java.util.List;
 public class PetService {
 
     private final PetRepository petRepository;
-    private PetMapper petMapper;
+    private final PetMapper petMapper;
+    private final TutorRepository tutorRepository;
 
     public PetDTO criarPet(PetCreateDTO petCreateDTO){
         log.info("Iniciando criação do pet");
@@ -60,14 +65,20 @@ public class PetService {
                 .toList();
     }
 
-    public PetDTO atualizarPet(Long idPet, PetCreateDTO petCreateDTO){
+    public PetDTO atualizarPet(Long idPet, PetCreateDTO petCreateDTO) {
         Pet petAtualizar = buscarPetById(idPet);
+
+        Set<Tutor> tutores = petCreateDTO.getIdTutores()
+                .stream()
+                .map(id -> tutorRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Tutor não encontrado com id: " + id)))
+                .collect(Collectors.toSet());
 
         petAtualizar.setNomePet(petCreateDTO.getNomePet());
         petAtualizar.setPorte(petCreateDTO.getPorte());
         petAtualizar.setSexoPet(petCreateDTO.getSexoPet());
         petAtualizar.setDataNascimento(petCreateDTO.getDataNascimento());
-        petAtualizar.setTutores(petCreateDTO.getTutores());
+        petAtualizar.setTutores(tutores);
         petAtualizar.setIdEspecie(petCreateDTO.getIdEspecie());
         petAtualizar.setIdRaca(petCreateDTO.getIdRaca());
 

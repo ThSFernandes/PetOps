@@ -29,7 +29,7 @@ public class PetCreateDTO{
 
     private LocalDate dataNascimento;
 
-    private Set<TutorDTO> tutores;
+    private Set<Long> idTutores;
 
     private Especie idEspecie;
 

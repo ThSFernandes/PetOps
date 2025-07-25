@@ -1,10 +1,14 @@
+-- SEQUÊNCIAS
 CREATE SEQUENCE seq_tutor START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 CREATE SEQUENCE seq_endereco START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 CREATE SEQUENCE seq_pet START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 CREATE SEQUENCE seq_funcionario START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 CREATE SEQUENCE seq_servico START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 CREATE SEQUENCE seq_agendamento START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE seq_especie START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
+CREATE SEQUENCE seq_raca START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
 
+-- TABELAS PRINCIPAIS
 CREATE TABLE Tutor (
     id_tutor           NUMBER PRIMARY KEY,
     nome_tutor         VARCHAR2(50) NOT NULL,
@@ -27,15 +31,37 @@ CREATE TABLE Endereco (
     FOREIGN KEY (id_tutor) REFERENCES Tutor(id_tutor)
 );
 
+CREATE TABLE Especie (
+    id_especie      NUMBER PRIMARY KEY,
+    nome_especie    VARCHAR2(50) NOT NULL
+);
+
+CREATE TABLE Raca (
+    id_raca         NUMBER PRIMARY KEY,
+    nome_raca       VARCHAR2(50) NOT NULL,
+    id_especie      NUMBER NOT NULL,
+    FOREIGN KEY (id_especie) REFERENCES Especie(id_especie)
+);
+
 CREATE TABLE Pet (
     id_pet           NUMBER PRIMARY KEY,
     id_tutor         NUMBER NOT NULL,
     nome_pet         VARCHAR2(30) NOT NULL,
-    especie          VARCHAR2(20),
-    raca             VARCHAR2(30),
     porte            VARCHAR2(10),
     sexo             VARCHAR2(10),
     data_nascimento  DATE,
+    id_especie       NUMBER NOT NULL,
+    id_raca          NUMBER NOT NULL,
+    FOREIGN KEY (id_tutor) REFERENCES Tutor(id_tutor),
+    FOREIGN KEY (id_especie) REFERENCES Especie(id_especie),
+    FOREIGN KEY (id_raca) REFERENCES Raca(id_raca)
+);
+
+CREATE TABLE Pet_Tutor (
+    id_pet    NUMBER NOT NULL,
+    id_tutor  NUMBER NOT NULL,
+    PRIMARY KEY (id_pet, id_tutor),
+    FOREIGN KEY (id_pet) REFERENCES Pet(id_pet),
     FOREIGN KEY (id_tutor) REFERENCES Tutor(id_tutor)
 );
 

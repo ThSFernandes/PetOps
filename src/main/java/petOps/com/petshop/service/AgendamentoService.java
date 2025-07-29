@@ -50,15 +50,18 @@ public class AgendamentoService {
                 .toList();
     }
 
-    public AgendamentoDTO buscarAgendamentoPorNomePet(String nomePet){
+    public List<AgendamentoDTO> buscarAgendamentoPorPet(String nomePet){
         log.info("Inciando busca do agendamento por nome do pet: {}", nomePet);
-        Agendamento agendamento = agendamentoRepository
-                .findByNomePet(nomePet)
-                .orElseThrow(() -> {
-                    log.warn("Agendamento não encontrado: {}", nomePet);
-                    return new EntityNotFoundException("Agendamento com nome do pet = " + nomePet + " , não encontrado");
-                });
-        return agendamentoMapper.toDto(agendamento);
+        List<Agendamento> agendamento = agendamentoRepository.findByPet_NomePet(nomePet);
+
+        if(agendamento.isEmpty()){
+            log.warn("Nenhum agendamento encontrado para o pet: {}", nomePet);
+            throw new EntityNotFoundException("Nenhum agendamento encontrado para o pet com nome = " + nomePet);
+        }
+
+        return agendamento.stream()
+                .map(agendamentoMapper::toDto)
+                .toList();
     }
 
     public AgendamentoDTO atualizarAgendamento(Long idAgendamento, AgendamentoCreateDTO agendamentoCreateDTO){

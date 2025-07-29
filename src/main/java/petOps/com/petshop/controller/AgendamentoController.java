@@ -26,8 +26,8 @@ public class AgendamentoController {
     }
 
     @GetMapping("nome/{nomePet}")
-    public ResponseEntity<AgendamentoDTO> buscarAgendamentoPorNomedoPet(@PathVariable("nomePet") String nomePet){
-        AgendamentoDTO agendamentoDTO = agendamentoService.buscarAgendamentoPorNomePet(nomePet);
+    public ResponseEntity<List<AgendamentoDTO>> buscarAgendamentoPorNomedoPet(@PathVariable("nomePet") String nomePet){
+        List<AgendamentoDTO> agendamentoDTO = agendamentoService.buscarAgendamentoPorPet(nomePet);
         return new ResponseEntity<>(agendamentoDTO, HttpStatus.OK);
     }
 

@@ -26,5 +26,5 @@ public class EnderecoCreateDTO {
 
     private String estado;
 
-    private Tutor tutores;
+    private Long idTutor;
 }

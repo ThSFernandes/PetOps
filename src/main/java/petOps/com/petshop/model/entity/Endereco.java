@@ -40,5 +40,5 @@ public class Endereco {
 
     @ManyToOne
     @JoinColumn(name = "ID_TUTOR", referencedColumnName = "ID_TUTOR")
-    private Tutor tutores;
+    private Tutor tutor;
 }

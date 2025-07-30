@@ -49,10 +49,10 @@ public class Pet {
 
     @ManyToOne
     @JoinColumn(name = "ID_ESPECIE", referencedColumnName = "ID_ESPECIE")
-    private Especie idEspecie;
+    private Especie especie;
 
     @ManyToOne
     @JoinColumn(name = "ID_RACA", referencedColumnName = "ID_RACA")
-    private Raca idRaca;
+    private Raca raca;
 
 }

@@ -24,6 +24,6 @@ public class EnderecoDTO {
 
     private String estado;
 
-    private Tutor tutores;
+    private Long idTutor;
 
 }

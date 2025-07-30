@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import petOps.com.petshop.model.dtos.enderecoDto.EnderecoCreateDTO;
 import petOps.com.petshop.model.dtos.enderecoDto.EnderecoDTO;
 import petOps.com.petshop.model.entity.Endereco;
+import petOps.com.petshop.model.entity.Tutor;
 import petOps.com.petshop.model.mapper.EnderecoMapper;
 import petOps.com.petshop.repository.EnderecoRepository;
 
@@ -49,7 +50,12 @@ public class EnderecoService {
         enderecoAtualizar.setComplemento(enderecoCreateDTO.getComplemento());
         enderecoAtualizar.setCidade(enderecoCreateDTO.getCidade());
         enderecoAtualizar.setEstado(enderecoCreateDTO.getEstado());
-        enderecoAtualizar.setTutores(enderecoCreateDTO.getTutores());
+
+        if (enderecoCreateDTO.getIdTutor() != null) {
+            Tutor tutor = new Tutor();
+            tutor.setIdTutor(enderecoCreateDTO.getIdTutor());
+            enderecoAtualizar.setTutor(tutor);
+        }
 
         enderecoRepository.save(enderecoAtualizar);
 

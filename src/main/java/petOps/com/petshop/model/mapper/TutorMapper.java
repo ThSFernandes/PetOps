@@ -9,9 +9,11 @@ import petOps.com.petshop.model.entity.Tutor;
 @Mapper(componentModel = "spring")
 public interface TutorMapper {
 
+    @Mapping(target = "enderecos", source = "enderecos")
     TutorDTO toDto(Tutor tutor);
 
     @Mapping(target = "idTutor", ignore = true)
+    @Mapping(target = "enderecos", source = "enderecos")
     Tutor toEntity(TutorCreateDTO TutorCreateDTO);
 
 }

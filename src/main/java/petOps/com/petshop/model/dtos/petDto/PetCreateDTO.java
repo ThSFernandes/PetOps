@@ -31,8 +31,8 @@ public class PetCreateDTO{
 
     private Set<Long> idTutores;
 
-    private Especie idEspecie;
+    private Long idEspecie;
 
-    private Raca idRaca;
+    private Long idRaca;
 
 }

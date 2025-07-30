@@ -6,10 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import petOps.com.petshop.model.dtos.petDto.PetCreateDTO;
 import petOps.com.petshop.model.dtos.petDto.PetDTO;
+import petOps.com.petshop.model.entity.Especie;
 import petOps.com.petshop.model.entity.Pet;
+import petOps.com.petshop.model.entity.Raca;
 import petOps.com.petshop.model.entity.Tutor;
 import petOps.com.petshop.model.mapper.PetMapper;
+import petOps.com.petshop.repository.EspecieRepository;
 import petOps.com.petshop.repository.PetRepository;
+import petOps.com.petshop.repository.RacaRepository;
 import petOps.com.petshop.repository.TutorRepository;
 
 import java.util.List;
@@ -24,17 +28,36 @@ public class PetService {
     private final PetRepository petRepository;
     private final PetMapper petMapper;
     private final TutorRepository tutorRepository;
+    private final EspecieRepository especieRepository;
+    private final RacaRepository racaRepository;
 
     public PetDTO criarPet(PetCreateDTO petCreateDTO){
         log.info("Iniciando criação do pet");
 
         Pet pet = petMapper.toEntity(petCreateDTO);
+
+        Especie especie = especieRepository.findById(petCreateDTO.getIdEspecie())
+                .orElseThrow(() -> new RuntimeException("Espécie não encontrada"));
+        pet.setEspecie(especie);
+
+
+        Raca raca = racaRepository.findById(petCreateDTO.getIdRaca())
+                .orElseThrow(() -> new RuntimeException("Raça não encontrada"));
+        pet.setRaca(raca);
+
+        Set<Tutor> tutores = petCreateDTO.getIdTutores().stream()
+                .map(id -> tutorRepository.findById(id)
+                        .orElseThrow(() -> new RuntimeException("Tutor não encontrado: " + id)))
+                .collect(Collectors.toSet());
+        pet.setTutores(tutores);
+
         pet = petRepository.save(pet);
 
         log.info("Pet criado com sucesso. ID={}", pet.getIdPet());
 
         return petMapper.toDto(pet);
     }
+
 
     public PetDTO buscarPet(Long idPet){
         return petRepository.findById(idPet)
@@ -74,13 +97,19 @@ public class PetService {
                         .orElseThrow(() -> new RuntimeException("Tutor não encontrado com id: " + id)))
                 .collect(Collectors.toSet());
 
+        Especie especie = especieRepository.findById(petCreateDTO.getIdEspecie())
+                .orElseThrow(() -> new RuntimeException("Espécie não encontrada"));
+
+        Raca raca = racaRepository.findById(petCreateDTO.getIdRaca())
+                .orElseThrow(() -> new RuntimeException("Raça não encontrada"));
+
         petAtualizar.setNomePet(petCreateDTO.getNomePet());
         petAtualizar.setPorte(petCreateDTO.getPorte());
         petAtualizar.setSexoPet(petCreateDTO.getSexoPet());
         petAtualizar.setDataNascimento(petCreateDTO.getDataNascimento());
         petAtualizar.setTutores(tutores);
-        petAtualizar.setIdEspecie(petCreateDTO.getIdEspecie());
-        petAtualizar.setIdRaca(petCreateDTO.getIdRaca());
+        petAtualizar.setEspecie(especie);
+        petAtualizar.setRaca(raca);
 
         petRepository.save(petAtualizar);
 

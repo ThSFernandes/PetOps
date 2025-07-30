@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import petOps.com.petshop.model.dtos.especieDto.EspecieDTO;
+import petOps.com.petshop.model.dtos.racaDto.RacaDTO;
 import petOps.com.petshop.model.dtos.tutorDto.TutorDTO;
 import petOps.com.petshop.model.entity.Especie;
 import petOps.com.petshop.model.entity.Raca;
@@ -29,7 +31,7 @@ public class PetDTO {
 
     private Set<TutorDTO> tutores;
 
-    private Especie idEspecie;
+    private EspecieDTO especie;
 
-    private Raca idRaca;
+    private RacaDTO raca;
 }

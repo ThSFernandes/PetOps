@@ -27,11 +27,11 @@ public class AgendamentoCreateDTO {
 
     private String observacoes;
 
-    private Pet pet;
+    private Long idPet;
 
-    private Funcionario funcionarioVeterinario;
+    private Long idVeterinario;
 
-    private Funcionario funcionarioGroomer;
+    private Long idGroomer;
 
-    private Set<ServicoCreateDTO> servicosAdicionais;
+    private Set<Long> idsServicosAdicionais;
 }

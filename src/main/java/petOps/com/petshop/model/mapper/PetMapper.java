@@ -11,9 +11,8 @@ import petOps.com.petshop.model.entity.Tutor;
 
 import java.util.Set;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {TutorMapper.class})
 public interface PetMapper {
-
     PetDTO toDto(Pet pet);
 
     @Mapping(target = "idPet", ignore = true)

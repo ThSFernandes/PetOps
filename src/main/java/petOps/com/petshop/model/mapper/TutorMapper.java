@@ -6,7 +6,7 @@ import petOps.com.petshop.model.dtos.tutorDto.TutorCreateDTO;
 import petOps.com.petshop.model.dtos.tutorDto.TutorDTO;
 import petOps.com.petshop.model.entity.Tutor;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {EnderecoMapper.class})
 public interface TutorMapper {
 
     @Mapping(target = "enderecos", source = "enderecos")
@@ -14,6 +14,5 @@ public interface TutorMapper {
 
     @Mapping(target = "idTutor", ignore = true)
     @Mapping(target = "enderecos", source = "enderecos")
-    Tutor toEntity(TutorCreateDTO TutorCreateDTO);
-
+    Tutor toEntity(TutorCreateDTO tutorCreateDTO);
 }

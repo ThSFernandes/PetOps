@@ -9,8 +9,10 @@ import petOps.com.petshop.model.entity.Endereco;
 @Mapper(componentModel = "spring")
 public interface EnderecoMapper {
 
+    @Mapping(target = "idTutor", ignore = true)
     EnderecoDTO toDto(Endereco endereco);
 
     @Mapping(target = "idEndereco", ignore = true)
+    @Mapping(target = "tutor", ignore = true)
     Endereco toEntity(EnderecoCreateDTO enderecoCreateDTO);
 }
